@@ -9,7 +9,9 @@ import (
 )
 
 func main() {
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		Concurrency: 100,
+	})
 
 	app.Get("/", func(c fiber.Ctx) error {
 		fmt.Println("start sleeping...")
